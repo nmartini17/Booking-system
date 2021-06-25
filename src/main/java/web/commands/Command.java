@@ -26,9 +26,10 @@ public abstract class Command
         commands.put("logoutcommand", new LogoutCommand(""));
         commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
         commands.put("registercommand", new RegisterCommand(""));
-        commands.put("studentpage", new CommandProtectedPage("customerpage", "student"));
-        commands.put("adminpage", new CommandProtectedPage("employeepage", "admin"));
+        commands.put("studentpage", new CommandProtectedPage("studentpage", "student"));
+        commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
         commands.put("showstudents", new ShowStudentsCommand("showstudentpage", "admin"));
+        commands.put("showitems", new ShowItemsCommand("showitemspage", "admin"));
     }
 
     public static Command fromPath(

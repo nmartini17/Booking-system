@@ -48,7 +48,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT id, role, name FROM users WHERE email=? AND password=?";
+            String sql = "SELECT id, role, name, phone FROM users WHERE email=? AND password=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
@@ -79,5 +79,4 @@ public class UserMapper
             throw new UserException("Connection to database could not be established");
         }
     }
-
 }

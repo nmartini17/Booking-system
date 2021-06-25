@@ -11,6 +11,7 @@
     <jsp:body>
         <div style="margin-top: 5em;">
             <form name="login" action="${pageContext.request.contextPath}/fc/registercommand" method="POST">
+
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="email">Email</label>
                     <div class="col-sm-4">
@@ -29,6 +30,7 @@
                         <input id="phone" class="form-control" type="number" name="phone" value="${param.name}" placeholder="Enter your phoner number">
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="password1">Password</label>
                     <div class="col-sm-4">
