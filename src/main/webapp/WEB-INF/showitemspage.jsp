@@ -17,9 +17,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Navn</th>
                 <th scope="col">Beskrivelse</th>
-                <th scope="col">Item tag</th>
-                <th scope="col">Item type</th>
-                <th scope="col">Room number</th>
+                <th scope="col">Varemærke</th>
+                <th scope="col">Varetype</th>
+                <th scope="col">Lokale</th>
             </tr>
             <c:forEach var="item" items="${requestScope.itemList}">
                 <tr>

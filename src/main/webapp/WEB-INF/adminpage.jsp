@@ -14,6 +14,6 @@
 
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/showstudents" role="button">Vis alle studerende</a>
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/showitems" role="button">Vis alt som kan bookes</a>
-
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/registerpage" role="button">Opret studerende</a>
     </jsp:body>
 </t:genericpage>

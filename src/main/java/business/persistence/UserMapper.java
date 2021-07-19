@@ -79,4 +79,22 @@ public class UserMapper
             throw new UserException("Connection to database could not be established");
         }
     }
+    public int removePoints(int points, int id) {
+        try (Connection connection = database.connect()) {
+            String sql = "update users set points = points - ? where id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setInt(1, points);
+                ps.setInt(2, id);
+                ps.executeUpdate();
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return points;
+    }
 }

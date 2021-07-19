@@ -24,12 +24,14 @@ public abstract class Command
         commands.put("loginpage", new CommandUnprotectedPage("loginpage"));
         commands.put("logincommand", new LoginCommand(""));
         commands.put("logoutcommand", new LogoutCommand(""));
-        commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
+        commands.put("registerpage", new Registration("registerpage", "admin"));
         commands.put("registercommand", new RegisterCommand(""));
         commands.put("studentpage", new CommandProtectedPage("studentpage", "student"));
         commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
         commands.put("showstudents", new ShowStudentsCommand("showstudentpage", "admin"));
         commands.put("showitems", new ShowItemsCommand("showitemspage", "admin"));
+        commands.put("bookingpage", new ShowItemsCommand("bookingpage", "student"));
+        commands.put("bookingresult", new BookingResult("bookingresult", "student"));
     }
 
     public static Command fromPath(

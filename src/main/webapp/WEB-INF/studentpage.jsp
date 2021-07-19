@@ -11,8 +11,9 @@
 
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Student of our wonderful site.
-        Role: ${sessionScope.role}
+        <h3>Velkommen til CPHBusiness bookingportal.</h3>
+        Role: ${sessionScope.role} <br/>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/bookingpage" role="button">Lån udstyr</a>
     </jsp:body>
 
 </t:genericpage>

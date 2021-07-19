@@ -21,9 +21,10 @@
 
             <c:if test="${pageContext.errorData.statusCode == 401 }">
                 <h4 style="color:darkred;font-size: larger">
-                    Attempt to access a protected resource without being authenticated.
+                    Attempt to access a protected resource without being authenticated. <br/>
+                    Få din lærer til at oprette dig i systemet, så du kan booke udstyr til dit projekt. <br/>
                     <a href="loginpage">Please login first!</a>
-                </h4>.
+                </h4>
 
                 </p>
             </c:if>

@@ -25,5 +25,8 @@ public class UserFacade
         userMapper.createUser(user);
         return user;
     }
-
+    public void removePoints(int points, int id) throws UserException
+    {
+        userMapper.removePoints(points, id);
+    }
 }

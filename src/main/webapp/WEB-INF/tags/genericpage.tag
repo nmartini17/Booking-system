@@ -24,7 +24,7 @@
     -->
 <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-white border-bottom shadow-sm">
     <div class="h5 my-0 me-md-auto fw-normal">
-        <p>Demo Project for DAT 2. semester</p>
+        <p>Booking Demo 2. sem re-eksamen</p>
         <p style="font-size: larger">
             <jsp:invoke fragment="header"/>
         </p>
@@ -49,31 +49,31 @@
         <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
 
         <c:if test="${isNotLoginPage && isNotRegisterPage}">
-            <c:if test="${sessionScope.user != null }">
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
-                href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
-            </c:if>
-            <c:if test="${sessionScope.user == null }">
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
-            </c:if>
+        <c:if test="${sessionScope.user != null }">
+            <a type="button" class="btn btn-sm  btn-outline-secondary"
+               href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+        </c:if>
+        <c:if test="${sessionScope.user == null }">
+            <a type="button" class="btn btn-sm  btn-outline-secondary"
+               href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
+            <a type="button" class="btn btn-sm  btn-outline-secondary"
+               href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+        </c:if>
     </div>
     </c:if>
-</header>
+    </header>
 
-<div id="body" class="container" style="min-height: 20vh;">
+    <div id="body" class="container" style="min-height: 20vh;">
     <jsp:doBody/>
-</div>
+    </div>
 
-<!-- Footer -->
-<div class="container">
+    <!-- Footer -->
+    <div class="container">
     <br>
     <hr>
     <br>
     <jsp:invoke fragment="footer"/>
-</div>
+    </div>
 
-</body>
-</html>
+    </body>
+    </html>

@@ -18,19 +18,16 @@
             <h2>Booking system</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                Main page for this 2. semester start project used at cphbusiness.dk
+                <p>Lån udstyr fra CPHBusiness Lyngby her.</p> <br/>
+                <p>Login med den bruger du har fået af din lærer.</p>
             </div>
 
             <c:if test="${sessionScope.role == 'admin' }">
-                <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an admin</p>
-                 <p><a href="fc/adminpage">Admin Page</a>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/adminpage" role="button">Admin page</a>
              </c:if>
 
              <c:if test="${sessionScope.role == 'student' }">
-                <p style="font-size: larger">This is what you can do, since your
-                    are logged in as a student</p>
-                <p><a href="fc/studentpage">Student Page</a>
+                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/bookingpage" role="button">Lån udstyr</a>
             </c:if>
 
         </div>

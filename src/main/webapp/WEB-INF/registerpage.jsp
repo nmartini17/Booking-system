@@ -4,11 +4,13 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Register as new User
+         Register a student
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
+        <h1>Få din lærer til at oprette dig i systemet, så du kan booke udstyr.</h1>
+        <c:if test="${sessionScope.role == 'admin' }">
         <div style="margin-top: 5em;">
             <form name="login" action="${pageContext.request.contextPath}/fc/registercommand" method="POST">
 
@@ -53,6 +55,7 @@
                 </p>
             </c:if>
         </div>
+        </c:if>
     </jsp:body>
 </t:genericpage>
 
