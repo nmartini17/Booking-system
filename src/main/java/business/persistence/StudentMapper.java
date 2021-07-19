@@ -35,6 +35,7 @@ public class StudentMapper {
                     String name = rs.getString("name");
                     String phone = rs.getString("phone");
                     int points = rs.getInt("points");
+
                     User user = new User(id, email, password, role, name, phone, points);
                     user.setId(id);
                     studentList.add(user);

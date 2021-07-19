@@ -1,9 +1,11 @@
 package business.entities;
 
+import java.util.Date;
+
 public class Booking {
 
     private int id;
-    private String booking_date;
+    private Date booking_date;
     private int days;
     private String comment;
     private boolean booking_status;
@@ -17,7 +19,7 @@ public class Booking {
         this.item_id = item_id;
     }
 
-    public Booking(int id, String booking_date, int days, String comment, boolean booking_status, int item_id) {
+    public Booking(int id, Date booking_date, int days, String comment, boolean booking_status, int item_id) {
         this.id = id;
         this.booking_date = booking_date;
         this.days = days;
@@ -71,5 +73,13 @@ public class Booking {
 
     public void setItem_id(int item_id) {
         this.item_id = item_id;
+    }
+
+    public Date getBooking_date() {
+        return booking_date;
+    }
+
+    public void setBooking_date(Date booking_date) {
+        this.booking_date = booking_date;
     }
 }

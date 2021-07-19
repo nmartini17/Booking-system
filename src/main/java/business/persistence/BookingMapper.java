@@ -46,32 +46,32 @@ public class BookingMapper {
         return booking;
     }
 
-    public List<Booking> getBookingById(int id) throws UserException {
+    public List<Booking> getAllBookings() throws UserException {
         List<Booking> bookingList = new ArrayList<>();
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM booking WHERE users_id = ?";
+            String sql = "SELECT * FROM booking";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, id);
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-
-                    int user_id = rs.getInt("id");
-                    String booking_date = rs.getString("booking_date");
+                    int id = rs.getInt("users_id");
+                    Date booking_date = rs.getDate("booking_date");
                     int days = rs.getInt("days");
                     String comment = rs.getString("comment");
                     boolean booking_status = rs.getBoolean("booking_status");
                     int item_id = rs.getInt("item_id");
+
                     Booking booking = new Booking(id, booking_date, days, comment, booking_status, item_id);
+                    booking.setId(id);
                     bookingList.add(booking);
                 }
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
         } catch (SQLException ex) {
-            throw new UserException("Connection to database could not be established");
+            throw new UserException("Couldn't reach booking database");
         }
         return bookingList;
     }

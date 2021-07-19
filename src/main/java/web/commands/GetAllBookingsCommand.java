@@ -1,23 +1,24 @@
 package web.commands;
 
 import business.exceptions.UserException;
+import business.services.BookingFacade;
 import business.services.StudentFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ShowStudentsCommand extends CommandProtectedPage {
+public class GetAllBookingsCommand extends CommandProtectedPage {
 
-    StudentFacade studentFacade;
+    BookingFacade bookingFacade;
 
-    public ShowStudentsCommand(String pageToShow, String role) {
+    public GetAllBookingsCommand(String pageToShow, String role) {
         super(pageToShow, role);
-        studentFacade = new StudentFacade(database);
+        bookingFacade = new BookingFacade(database);
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        request.setAttribute("studentlist", studentFacade.getAllStudents());
+        request.setAttribute("showbooking", bookingFacade.getAllBookings());
         return pageToShow;
     }
 }
