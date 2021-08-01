@@ -19,7 +19,6 @@
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
                 <p>Lån udstyr fra CPHBusiness Lyngby her.</p> <br/>
-                <p>Login med den bruger du har fået af din lærer.</p>
             </div>
 
             <c:if test="${sessionScope.role == 'admin' }">

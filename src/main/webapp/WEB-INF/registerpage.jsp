@@ -4,12 +4,11 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Register a student
+         Registrer en studerende
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
-    <jsp:body>
-        <h1>Få din lærer til at oprette dig i systemet, så du kan booke udstyr.</h1>
+    <jsp:body> <h1>Opret studerende herunder, så de kan få adgang til at låne udstyr.</h1>
         <c:if test="${sessionScope.role == 'admin' }">
         <div style="margin-top: 5em;">
             <form name="login" action="${pageContext.request.contextPath}/fc/registercommand" method="POST">
@@ -17,36 +16,36 @@
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="email">Email</label>
                     <div class="col-sm-4">
-                        <input id="email" class="form-control" type="text" name="email" value="${param.email}" placeholder="Enter a valid email">
+                        <input id="email" class="form-control" type="text" name="email" value="${param.email}" placeholder="Skriv email adressen på den studerende">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="name">Name</label>
+                    <label class="col-sm-1 col-form-label" for="name">Navn</label>
                     <div class="col-sm-4">
-                        <input id="name" class="form-control" type="text" name="name" value="${param.name}" placeholder="Enter your name">
+                        <input id="name" class="form-control" type="text" name="name" value="${param.name}" placeholder="Navnet på den studerende">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="phone">Phone</label>
+                    <label class="col-sm-1 col-form-label" for="phone">Tlf. nr.</label>
                     <div class="col-sm-4">
-                        <input id="phone" class="form-control" type="number" name="phone" value="${param.name}" placeholder="Enter your phoner number">
+                        <input id="phone" class="form-control" type="number" name="phone" value="${param.name}" placeholder="Tlf. nr. på den studerende">
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="password1">Password</label>
+                    <label class="col-sm-1 col-form-label" for="password1">Kodeord</label>
                     <div class="col-sm-4">
-                        <input id="password1" class="form-control" type="password" name="password1"  value="${param.password1}"  placeholder="Enter your password">
+                        <input id="password1" class="form-control" type="password" name="password1"  value="${param.password1}"  placeholder="Skriv kodeord">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="password2">Password</label>
+                    <label class="col-sm-1 col-form-label" for="password2">Kodeord</label>
                     <div class="col-sm-4">
-                        <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Repeat the password">
+                        <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Skriv kodeord igen">
                     </div>
                 </div>
 
-                <input class="btn btn-primary" type="submit" type="submit" value="Submit">
+                <input class="btn btn-primary" type="submit" value="Opret studerende">
             </form>
 
             <c:if test="${requestScope.error != null }">

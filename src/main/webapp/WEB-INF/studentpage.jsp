@@ -13,6 +13,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         <h3>Velkommen til CPHBusiness bookingportal.</h3>
         Role: ${sessionScope.role} <br/>
+        <h4>Tryk på 'lån udstyr' for at komme i gang.</h4>
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/bookingpage" role="button">Lån udstyr</a>
     </jsp:body>
 

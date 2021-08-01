@@ -1,31 +1,32 @@
 package web.commands;
 
 import business.exceptions.UserException;
+import business.persistence.BookingMapper;
 import business.services.BookingFacade;
-import business.services.StudentFacade;
+import business.services.ItemFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class GetAllBookingsCommand extends CommandProtectedPage {
+public class ItemReturnedCommand extends CommandProtectedPage {
 
     BookingFacade bookingFacade;
+    BookingMapper bookingMapper;
 
-    public GetAllBookingsCommand(String pageToShow, String role) {
+    public ItemReturnedCommand(String pageToShow, String role) {
         super(pageToShow, role);
         bookingFacade = new BookingFacade(database);
+        bookingMapper = new BookingMapper(database);
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        if (request.getParameter("booking_id")!= null) {
         try {
-            bookingFacade.itemReturned(Integer.parseInt(request.getParameter("booking_id")));
+        bookingFacade.itemReturned(Integer.parseInt(request.getParameter("booking_id")));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        }
-        request.setAttribute("showbooking", bookingFacade.getAllActiveBookings());
         return pageToShow;
     }
 }

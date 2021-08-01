@@ -56,6 +56,7 @@ public class BookingMapper {
 
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
+                    int booking_id = rs.getInt("booking_id");
                     int id = rs.getInt("users_id");
                     Date booking_date = rs.getDate("booking_date");
                     int days = rs.getInt("days");
@@ -63,7 +64,7 @@ public class BookingMapper {
                     boolean booking_status = rs.getBoolean("booking_status");
                     int item_id = rs.getInt("item_id");
 
-                    Booking booking = new Booking(id, booking_date, days, comment, booking_status, item_id);
+                    Booking booking = new Booking(booking_id, id, booking_date, days, comment, booking_status, item_id);
                     booking.setId(id);
                     bookingList.add(booking);
                 }
@@ -74,5 +75,51 @@ public class BookingMapper {
             throw new UserException("Couldn't reach booking database");
         }
         return bookingList;
+    }
+    public List<Booking> getAllActiveBookings() throws UserException {
+        List<Booking> bookingList = new ArrayList<>();
+
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM booking WHERE booking_status = 1";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int booking_id = rs.getInt("booking_id");
+                    int id = rs.getInt("users_id");
+                    Date booking_date = rs.getDate("booking_date");
+                    int days = rs.getInt("days");
+                    String comment = rs.getString("comment");
+                    boolean booking_status = rs.getBoolean("booking_status");
+                    int item_id = rs.getInt("item_id");
+
+                    Booking booking = new Booking(booking_id, id, booking_date, days, comment, booking_status, item_id);
+                    booking.setId(id);
+                    bookingList.add(booking);
+                }
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Couldn't reach booking database");
+        }
+        return bookingList;
+    }
+    public void itemReturned(int item_id) throws UserException {
+        System.out.println(item_id);
+        try (Connection connection = database.connect()) {
+            String sql = "UPDATE booking SET booking_status = 0 WHERE booking_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, item_id);
+
+                ps.execute();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }

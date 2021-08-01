@@ -16,9 +16,9 @@
         <div>
             Her er hvad du har booked og i hvor lang tid:
 
-            <!--Du har booked ${requestScope} i ${requestScope.getAmountOfDays} dage.-->
+            <!--Du har booked ${requestScope.item} i ${requestScope.getAmountOfDays} dage.-->
 
-            Du har ${requestScope.points} point tilbage.
+            Du har ${sessionScope.user.points} point tilbage.
         </div>
     </jsp:body>
 </t:genericpage>

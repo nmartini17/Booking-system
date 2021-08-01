@@ -6,6 +6,7 @@ import business.exceptions.UserException;
 import business.persistence.BookingMapper;
 import business.persistence.Database;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class BookingFacade {
@@ -17,5 +18,13 @@ public class BookingFacade {
 
     public List<Booking> getAllBookings() throws UserException {
         return bookingMapper.getAllBookings();
+    }
+
+    public List<Booking> getAllActiveBookings() throws UserException {
+        return bookingMapper.getAllActiveBookings();
+    }
+
+    public void itemReturned(int item_id) throws UserException{
+        bookingMapper.itemReturned(item_id);
     }
 }

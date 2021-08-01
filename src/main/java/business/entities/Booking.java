@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Booking {
 
+    private int booking_id;
     private int id;
     private Date booking_date;
     private int days;
@@ -19,7 +20,8 @@ public class Booking {
         this.item_id = item_id;
     }
 
-    public Booking(int id, Date booking_date, int days, String comment, boolean booking_status, int item_id) {
+    public Booking(int booking_id, int id, Date booking_date, int days, String comment, boolean booking_status, int item_id) {
+        this.booking_id = booking_id;
         this.id = id;
         this.booking_date = booking_date;
         this.days = days;
@@ -34,6 +36,13 @@ public class Booking {
         this.item_id = item_id;
     }
 
+    public int getBooking_id() {
+        return booking_id;
+    }
+
+    public void setBooking_id(int booking_id) {
+        this.booking_id = booking_id;
+    }
 
     public int getId() {
         return id;
@@ -41,6 +50,14 @@ public class Booking {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getBooking_date() {
+        return booking_date;
+    }
+
+    public void setBooking_date(Date booking_date) {
+        this.booking_date = booking_date;
     }
 
     public int getDays() {
@@ -73,13 +90,5 @@ public class Booking {
 
     public void setItem_id(int item_id) {
         this.item_id = item_id;
-    }
-
-    public Date getBooking_date() {
-        return booking_date;
-    }
-
-    public void setBooking_date(Date booking_date) {
-        this.booking_date = booking_date;
     }
 }
