@@ -116,10 +116,10 @@ public class BookingMapper {
 
                 ps.execute();
             } catch (SQLException ex) {
-                ex.printStackTrace();
+                throw new UserException(ex.getMessage());
             }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new UserException("Couldn't reach booking database");
         }
     }
 }

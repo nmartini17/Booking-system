@@ -24,7 +24,7 @@ public class BookingResult extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
-        //Det er i en try catch, da jeg parser en int til en string, og det kan gå galt.
+        //Det er i en try catch, da jeg parser en int til en string, det kan gå galt.
         try {
             int item_id = Integer.parseInt(request.getParameter("item_id"));
             int days = Integer.parseInt(request.getParameter("days"));

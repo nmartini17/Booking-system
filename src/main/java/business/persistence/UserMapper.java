@@ -79,7 +79,7 @@ public class UserMapper
             throw new UserException("Connection to database could not be established");
         }
     }
-    public int removePoints(int points, int id) {
+    public int removePoints(int points, int id) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "UPDATE users SET points = points - ? WHERE id = ?";
 
@@ -89,11 +89,10 @@ public class UserMapper
                 ps.executeUpdate();
 
             } catch (SQLException ex) {
-                ex.printStackTrace();
+                throw new UserException(ex.getMessage());
             }
-
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new UserException("Couldn't reach booking database");
         }
         return points;
     }

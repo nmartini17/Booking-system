@@ -14,10 +14,7 @@
 
     <jsp:body>
         <div>
-            Her er hvad du har booked og i hvor lang tid:
-
-            <!--Du har booked ${requestScope.item} i ${requestScope.getAmountOfDays} dage.-->
-
+            Tak for din booking.
             Du har ${sessionScope.user.points} point tilbage.
         </div>
     </jsp:body>
