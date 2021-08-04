@@ -15,7 +15,6 @@
     <jsp:body>
         <div>
             Tak for din booking.
-            Du har ${sessionScope.user.points} point tilbage.
         </div>
     </jsp:body>
 </t:genericpage>

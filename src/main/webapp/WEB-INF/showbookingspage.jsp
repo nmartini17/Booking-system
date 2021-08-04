@@ -15,16 +15,16 @@
 
         <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th scope="col">Booking status</th>
-                <th scope="col">Antal dage booket</th>
                 <th scope="col">Booking Dato</th>
-                <th scope="col">Afleveret</th>
+                <th scope="col">Antal dage booket</th>
+                <th scope="col">Booking status</th>
+                <th scope="col">Er udstyret blevet afleveret tilbage?</th>
             </tr>
             <c:forEach var="booking" items="${requestScope.showbooking}">
                 <tr>
-                    <td>${booking.booking_status}</td>
-                    <td>${booking.days}</td>
                     <td>${booking.booking_date}</td>
+                    <td>${booking.days}</td>
+                    <td>${booking.booking_status}</td>
         <form name="bookingreturned" action="${pageContext.request.contextPath}/fc/showbooking" method="POST">
                     <input type="hidden" name="booking_id" value="${booking.booking_id}">
                     <td><input class="btn btn-primary" type="submit" value="Afleveret"></td>

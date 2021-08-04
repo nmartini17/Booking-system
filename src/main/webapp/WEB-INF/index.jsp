@@ -18,14 +18,20 @@
             <h2>Booking system</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                <p>Lån udstyr fra CPHBusiness Lyngby her.</p> <br/>
+                <p>Velkommen til CPHBusiness Lyngby udlejningsportal.</p>
             </div>
 
             <c:if test="${sessionScope.role == 'admin' }">
+                <div style="margin-top: 3em;margin-bottom: 3em;">
+                    <p>Gå til admin page ved at klikke på knappen under</p>
+                </div>
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/adminpage" role="button">Admin page</a>
              </c:if>
 
              <c:if test="${sessionScope.role == 'student' }">
+                 <div style="margin-top: 3em;margin-bottom: 3em;">
+                     <p>Try på lån udstyr knappen herunder, for at komme i gang!</p>
+                 </div>
                      <a class="btn btn-primary" href="${pageContext.request.contextPath}/fc/bookingpage" role="button">Lån udstyr</a>
             </c:if>
 
