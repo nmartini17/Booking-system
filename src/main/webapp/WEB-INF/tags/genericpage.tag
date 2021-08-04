@@ -42,7 +42,7 @@
 
         <c:if test="${sessionScope.user != null }">
             ${sessionScope.user.email}
-            ${sessionScope.user.points} point
+            Point: ${sessionScope.user.points}
         </c:if>
 
         <c:set var="thisPage" value="${pageContext.request.servletPath}"/>

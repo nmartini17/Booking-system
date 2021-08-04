@@ -81,7 +81,7 @@ public class UserMapper
     }
     public int removePoints(int points, int id) {
         try (Connection connection = database.connect()) {
-            String sql = "update users set points = points - ? where id = ?";
+            String sql = "UPDATE users SET points = points - ? WHERE id = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, points);

@@ -27,4 +27,5 @@ public class BookingFacade {
     public void itemReturned(int item_id) throws UserException{
         bookingMapper.itemReturned(item_id);
     }
+
 }

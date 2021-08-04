@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserMapperTest {
 
-    private final static String DATABASE = "startcode";  // Change this to your own database
+    private final static String DATABASE = "booking";  // Change this to your own database
     private final static String TESTDATABASE = DATABASE + "_test";
     private final static String USER = "dev";
     private final static String PASSWORD = "ax2";
@@ -35,13 +35,13 @@ public class UserMapperTest {
 
             // reset test database
             try ( Statement stmt = database.connect().createStatement() ) {
-                stmt.execute("drop table if exists users" );
+                stmt.execute("drop table if exists booking_test.users" );
                 stmt.execute("create table " + TESTDATABASE + ".users LIKE " + DATABASE + ".users;" );
                 stmt.execute(
                     "insert into users values " +
-                    "(1,'jens@somewhere.com','jensen','customer'), " +
-                    "(2,'ken@somewhere.com','kensen','customer'), " +
-                    "(3,'robin@somewhere.com','batman','employee')");
+                    "(1,'a@a.dk','123','student'), " +
+                    "(2,'ken@somewhere.com','kensen','student'), " +
+                    "(3,'robin@gotham.com','batman','employee')");
             } catch (SQLException ex) {
             System.out.println( "Could not open connection to database: " + ex.getMessage() );
         }
@@ -56,7 +56,7 @@ public class UserMapperTest {
     @Test
     public void testLogin01() throws UserException {
         // Can we log in
-        User user = userMapper.login( "jens@somewhere.com", "jensen" );
+        User user = userMapper.login( "a@a.dk", "123" );
         assertTrue( user != null );
     }
 
@@ -70,18 +70,18 @@ public class UserMapperTest {
 
     @Test
     public void testLogin03() throws UserException {
-        // Jens is supposed to be a customer
-        User user = userMapper.login( "jens@somewhere.com", "jensen" );
-        assertEquals( "customer", user.getRole() );
+        // a@a is supposed to be a customer/student
+        User user = userMapper.login( "a@a.dk", "123" );
+        assertEquals( "student", user.getRole() );
     }
 
     @Test
     public void testCreateUser01() throws UserException {
         // Can we create a new user - Notice, if login fails, this will fail
         // but so would login01, so this is OK
-        User original = new User( "king@kong.com", "uhahvorhemmeligt", "konge", "Ole", "12345678" );
+        User original = new User( "c@c.dk", "l", "student", "Ole", "12345678" );
         userMapper.createUser( original );
-        User retrieved = userMapper.login( "king@kong.com", "uhahvorhemmeligt" );
-        assertEquals( "konge", retrieved.getRole() );
+        User retrieved = userMapper.login( "c@c.dk", "l" );
+        assertEquals( "student", retrieved.getRole() );
     }
 }
